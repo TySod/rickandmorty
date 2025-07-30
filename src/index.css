@@ -1,13 +1,90 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  @apply bg-gray-900 text-white min-h-screen;
+}
+html, body {
+  background-color: #1a202c; /* Tailwind's bg-gray-900 */
+  color: #fff;
+  min-height: 100vh;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background: linear-gradient(270deg, #0f2027, #2c5364, #1c92d2, #f2fcfe, #0f2027);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+input, button, select {
+  background-color: #2d3748; /* Tailwind's bg-gray-800 */
+  color: #fff;
+  border: 1px solid #4a5568; /* Tailwind's border-gray-700 */
+  border-radius: 0.5rem; /* Tailwind's rounded-lg */
+  padding: 0.5rem;
+  font-size: 1rem; /* Tailwind's text-base */
+}
+/* Add to your index.css or a component-specific CSS file */
+
+.character-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.character-card {
+  background: #23272f;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25), 0 1.5px 6px rgba(0,255,128,0.10);
+  overflow: hidden;
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-evenly;
+
+}
+
+.character-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 16px 32px rgba(0,255,128,0.18), 0 4px 16px rgba(0,0,0,0.25);
+}
+
+.character-card img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  display: block;
+}
+
+.character-card-content {
+  padding: 1rem;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.character-card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #7fff00;
+  margin-bottom: 0.5rem;
+}
+
+.character-card-desc {
+  color: #e2e8f0;
+  font-size: 1rem;
 }
